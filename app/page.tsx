@@ -5,11 +5,15 @@ import { useEffect, useRef, useState } from "react"
 import { Menu, X, Globe, Sun, Moon, LogIn, LifeBuoy, ChevronRight, Mail, MessageCircle } from "lucide-react"
 
 const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "How it works", href: "#how-it-works" },
-  { label: "Capabilities", href: "#capabilities" },
-  { label: "Live Demo", href: "#" },
-  { label: "Help & Support", href: "#support" },
+  { label: "Dashboard", href: "#" },
+  { label: "Records", href: "#" },
+  { label: "Upload & Processing", href: "#" },
+  { label: "Verification Queue", href: "#" },
+  { label: "Cross-Verification", href: "#" },
+  { label: "Duplicate Detection", href: "#" },
+  { label: "GIS Explorer", href: "#" },
+  { label: "Reports", href: "#" },
+  { label: "Audit Trail", href: "#" },
 ]
 
 const languages = ["English", "हिन्दी", "தமிழ்", "తెలుగు", "বাংলা", "मराठी"]
