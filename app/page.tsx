@@ -240,31 +240,46 @@ export default function Page() {
           aria-hidden="true"
         />
         <div className="mx-auto max-w-6xl px-6 py-16 lg:py-24">
-          {/* Hero copy */}
-          <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-              Intelligent Land Record Digitization
-            </p>
-            <h1 className="mt-5 text-balance text-4xl font-bold leading-[1.05] tracking-tight text-[#0f2c5c] sm:text-6xl dark:text-white">
-              Digitize. Verify. <span className="text-[#1f8a4c] dark:text-[#4ade80]">Validate.</span> Before You Transfer.
-            </h1>
-            <p className="mt-5 max-w-lg text-pretty text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-              AI-powered land record validation and pre-transaction risk detection for a more trusted property journey.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href="#"
-                className="inline-flex items-center gap-2 rounded-md bg-[#0f2c5c] px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 dark:bg-[#3b6fd4]"
-              >
-                Upload land record
-                <ArrowRight className="h-4 w-4" />
-              </a>
-              <a
-                href="#how-it-works"
-                className="text-sm font-semibold text-[#0f2c5c] transition-colors hover:text-[#1f8a4c] dark:text-[#7fa8ec] dark:hover:text-[#4ade80]"
-              >
-                Verify a property
-              </a>
+          {/* Hero section with text and image */}
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+            {/* Left: Hero copy */}
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                Intelligent Land Record Digitization
+              </p>
+              <h1 className="mt-5 text-balance text-4xl font-bold leading-[1.05] tracking-tight text-[#0f2c5c] sm:text-5xl lg:text-5xl dark:text-white">
+                Digitize. Verify. <span className="text-[#1f8a4c] dark:text-[#4ade80]">Validate.</span> Before You Transfer.
+              </h1>
+              <p className="mt-5 max-w-lg text-pretty text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+                AI-powered land record validation and pre-transaction risk detection for a more trusted property journey.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-2 rounded-md bg-[#0f2c5c] px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 dark:bg-[#3b6fd4]"
+                >
+                  Upload land record
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+                <a
+                  href="#how-it-works"
+                  className="text-sm font-semibold text-[#0f2c5c] transition-colors hover:text-[#1f8a4c] dark:text-[#7fa8ec] dark:hover:text-[#4ade80]"
+                >
+                  Verify a property
+                </a>
+              </div>
+            </div>
+
+            {/* Right: Provided image */}
+            <div className="relative overflow-hidden rounded-xl border border-slate-200 shadow-sm dark:border-slate-800">
+              <Image
+                src="/axiom-record-intelligence.png"
+                alt="AXIOM Record Intelligence interface showing a scanned Record of Rights being digitized with AI extraction and a 97.8% match confidence result."
+                width={1456}
+                height={1092}
+                className="h-auto w-full"
+                priority
+              />
             </div>
           </div>
 
@@ -279,18 +294,6 @@ export default function Page() {
                 <div className="mt-1 text-sm text-slate-300">{stat.label}</div>
               </div>
             ))}
-          </div>
-
-          {/* Provided image */}
-          <div className="relative mt-12 overflow-hidden rounded-xl border border-slate-200 shadow-sm dark:border-slate-800">
-            <Image
-              src="/axiom-record-intelligence.png"
-              alt="AXIOM Record Intelligence interface showing a scanned Record of Rights being digitized with AI extraction and a 97.8% match confidence result."
-              width={1456}
-              height={1092}
-              className="h-auto w-full"
-              priority
-            />
           </div>
         </div>
       </section>
