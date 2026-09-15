@@ -115,9 +115,7 @@ export default function Page() {
                 A
               </div>
               <span className="text-lg font-semibold tracking-tight text-[#0f2c5c] dark:text-slate-100">AXIOM</span>
-              <span className="ml-1 hidden text-xs font-medium uppercase tracking-widest text-slate-400 sm:inline">
-                Record Intelligence
-              </span>
+
             </div>
           </div>
 
@@ -190,34 +188,7 @@ export default function Page() {
           }}
           aria-hidden="true"
         />
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 lg:grid-cols-2 lg:py-24">
-          <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0f2c5c] dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200">
-              <span className="h-2 w-2 rounded-full bg-[#1f8a4c]" aria-hidden="true" />
-              System Ready
-            </span>
-            <h1 className="mt-5 text-balance text-4xl font-bold leading-tight tracking-tight text-[#0f2c5c] sm:text-5xl dark:text-white">
-              Verify Land Records Before You Transfer.
-            </h1>
-            <p className="mt-5 max-w-md text-pretty text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-              AI-assisted digitization, verification and risk analysis for safer property transactions.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#"
-                className="rounded-md bg-[#0f2c5c] px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 dark:bg-[#3b6fd4]"
-              >
-                TRY LIVE DEMO
-              </a>
-              <a
-                href="#how-it-works"
-                className="rounded-md border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-900"
-              >
-                VIEW HOW IT WORKS
-              </a>
-            </div>
-          </div>
-
+        <div className="mx-auto max-w-6xl px-6 py-16 lg:py-24">
           {/* Provided image */}
           <div className="relative overflow-hidden rounded-xl border border-slate-200 shadow-sm dark:border-slate-800">
             <Image
