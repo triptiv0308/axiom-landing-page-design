@@ -2,7 +2,23 @@
 
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
-import { Menu, X, Globe, Sun, Moon, LogIn, LifeBuoy, ChevronRight, Mail, MessageCircle } from "lucide-react"
+import {
+  Menu,
+  X,
+  Globe,
+  Sun,
+  Moon,
+  LogIn,
+  LifeBuoy,
+  ChevronRight,
+  Mail,
+  MessageCircle,
+  ArrowRight,
+  Building2,
+  ShieldCheck,
+  Landmark,
+  UserRound,
+} from "lucide-react"
 
 const navLinks = [
   { label: "Dashboard", href: "#" },
@@ -17,6 +33,35 @@ const navLinks = [
 ]
 
 const languages = ["English", "हिन्दी", "தமிழ்", "తెలుగు", "বাংলা", "मराठी"]
+
+const heroStats = [
+  { value: "15 min", label: "Average verification time" },
+  { value: "97.8%", label: "AI extraction accuracy" },
+  { value: "11,962", label: "Records validated" },
+]
+
+const workspaces = [
+  {
+    name: "Revenue Department",
+    description: "Digitize and manage official land records.",
+    icon: Landmark,
+  },
+  {
+    name: "Verification Officer",
+    description: "Review, cross-check and approve records.",
+    icon: ShieldCheck,
+  },
+  {
+    name: "Registrar Office",
+    description: "Oversee property transfers and transactions.",
+    icon: Building2,
+  },
+  {
+    name: "Citizen / Owner",
+    description: "Verify a property before you transact.",
+    icon: UserRound,
+  },
+]
 
 const workflow = [
   "Old Record",
@@ -64,6 +109,7 @@ export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
   const [lang, setLang] = useState("English")
+  const [signInOpen, setSignInOpen] = useState(false)
 
   useEffect(() => {
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -170,13 +216,14 @@ export default function Page() {
             </button>
 
             {/* Sign in */}
-            <a
-              href="#"
+            <button
+              type="button"
+              onClick={() => setSignInOpen(true)}
               className="flex h-9 items-center gap-1.5 rounded-md bg-[#0f2c5c] px-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 dark:bg-[#3b6fd4]"
             >
               <LogIn className="h-4 w-4" />
               <span className="hidden sm:inline">Sign in</span>
-            </a>
+            </button>
           </div>
         </div>
       </header>
@@ -193,8 +240,49 @@ export default function Page() {
           aria-hidden="true"
         />
         <div className="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+          {/* Hero copy */}
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+              Intelligent Land Record Digitization
+            </p>
+            <h1 className="mt-5 text-balance text-4xl font-bold leading-[1.05] tracking-tight text-[#0f2c5c] sm:text-6xl dark:text-white">
+              Digitize. Verify. <span className="text-[#1f8a4c] dark:text-[#4ade80]">Validate.</span> Before You Transfer.
+            </h1>
+            <p className="mt-5 max-w-lg text-pretty text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+              AI-powered land record validation and pre-transaction risk detection for a more trusted property journey.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <a
+                href="#"
+                className="inline-flex items-center gap-2 rounded-md bg-[#0f2c5c] px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 dark:bg-[#3b6fd4]"
+              >
+                Upload land record
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href="#how-it-works"
+                className="text-sm font-semibold text-[#0f2c5c] transition-colors hover:text-[#1f8a4c] dark:text-[#7fa8ec] dark:hover:text-[#4ade80]"
+              >
+                Verify a property
+              </a>
+            </div>
+          </div>
+
+          {/* Stats bar */}
+          <div className="mt-12 grid grid-cols-1 overflow-hidden rounded-xl bg-[#0f2c5c] sm:grid-cols-3 dark:bg-[#12213f]">
+            {heroStats.map((stat, i) => (
+              <div
+                key={stat.label}
+                className={`px-8 py-7 ${i > 0 ? "border-t border-white/10 sm:border-l sm:border-t-0" : ""}`}
+              >
+                <div className="text-3xl font-bold tracking-tight text-white">{stat.value}</div>
+                <div className="mt-1 text-sm text-slate-300">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+
           {/* Provided image */}
-          <div className="relative overflow-hidden rounded-xl border border-slate-200 shadow-sm dark:border-slate-800">
+          <div className="relative mt-12 overflow-hidden rounded-xl border border-slate-200 shadow-sm dark:border-slate-800">
             <Image
               src="/axiom-record-intelligence.png"
               alt="AXIOM Record Intelligence interface showing a scanned Record of Rights being digitized with AI extraction and a 97.8% match confidence result."
@@ -292,6 +380,66 @@ export default function Page() {
           </a>
         </div>
       </footer>
+
+      {/* Sign in — Choose your workspace */}
+      {signInOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="workspace-title"
+        >
+          <div
+            className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm"
+            onClick={() => setSignInOpen(false)}
+            aria-hidden="true"
+          />
+          <div className="relative w-full max-w-lg rounded-2xl border border-slate-200 bg-white p-6 shadow-xl dark:border-slate-800 dark:bg-slate-900">
+            <div className="flex items-start justify-between">
+              <div>
+                <h2 id="workspace-title" className="text-lg font-semibold text-[#0f2c5c] dark:text-white">
+                  Choose your workspace
+                </h2>
+                <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
+                  Select a workspace to sign in and continue.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setSignInOpen(false)}
+                aria-label="Close"
+                className="flex h-8 w-8 items-center justify-center rounded-md text-slate-500 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              {workspaces.map((ws) => {
+                const Icon = ws.icon
+                return (
+                  <button
+                    key={ws.name}
+                    type="button"
+                    onClick={() => setSignInOpen(false)}
+                    className="group flex items-start gap-3 rounded-xl border border-slate-200 p-4 text-left transition-colors hover:border-[#0f2c5c] hover:bg-slate-50 dark:border-slate-800 dark:hover:border-[#3b6fd4] dark:hover:bg-slate-800"
+                  >
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#eaf3ff] text-[#0f2c5c] dark:bg-slate-800 dark:text-[#7fa8ec]">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold text-[#0f2c5c] dark:text-white">{ws.name}</div>
+                      <div className="mt-0.5 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                        {ws.description}
+                      </div>
+                    </div>
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   )
 }
